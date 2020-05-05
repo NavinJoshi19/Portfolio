@@ -1,0 +1,1612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Cormorant' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <title>Navin's Portfolio</title>
+    <style>
+        body{
+            transition: all 1s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+
+            /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #ffcb00;
+        }
+
+            /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a41d3145;
+        }
+
+        .side-bar{
+            width: 25vw;
+            position: fixed;
+            min-width: 470px;
+            z-index: 200;
+        }
+        .side-bar .side_nav{
+            height: 5.2rem;
+            color: #a41d31;
+            font-weight: bold;
+            position: relative;
+            transition: all 1s ease;
+            font-family: 'Cormorant', serif;
+        }
+        .side-bar .side_nav.active{
+            height: 6rem;
+            font-size: 30px;
+            transition: all 1s ease;
+        }
+        .side-bar .side_nav:before{
+            content: ' ';
+            margin: 0.6rem .3rem;
+            background-color: #a41d31;
+            border-radius: 3rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            transition: all 1s ease;
+        }
+        .side-bar .side_nav.active:before{
+            content: ' ';
+            margin: 1.1rem .3rem;
+            background-color: #a41d31;
+            border-radius: 3rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            transition: all 1s ease;
+        }
+        .side-bar .side_nav#home_nav.active:before {
+            content: ' ';
+            margin: 0.9rem .3rem;
+            background-color: #a41d31;
+            border-radius: 3rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            transition: all 1s ease;
+        }
+        .side-bar:before{
+            content: ' ';
+            margin: 2.5rem 0.5rem;
+            background-color: #a41d31;
+            border-radius: 3rem;
+            width: 1.5px;
+            height: 37rem;
+            position: absolute;
+            transition: all 1s ease;
+        }
+        .tab_content{
+            height: 100vh;;
+            z-index: -1;
+        }
+        .tab_content .background-image{
+            /* background-image: url('/static/projects.png'); */
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.7;
+            vertical-align: top;
+            z-index:-1;
+            /* position: sticky; */
+            /* top: 0; */
+        }
+        .tab_content .background-image-2{
+            /* background-image: url('/static/projects.png'); */
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.2;
+            vertical-align: top;
+            z-index:-1;
+            position: absolute;
+            top: 0;
+            animation-name: hovering;
+            animation-iteration-count: infinite;
+            animation-duration: 3500ms;
+            z-index:99;
+            /* background-color: gold;
+            background-blend-mode: multiply; */
+        }
+        @keyframes hovering {
+            0%{
+                transform: translate(0px, 0px)
+            }
+            50%{
+                transform: translate(-10px,-10px)
+            }
+            100%{
+                transform: translate(0px, 0px)
+            }
+        }
+        .tab_content .content{
+            height: 100%;
+            overflow-y: auto;
+        }
+        .fs-35{
+            font-size: 35px;
+        }
+        .fs-14{
+            font-size: 14px;
+        }
+        .fs-12{
+            font-size: 12px;
+        }
+        .fs-20{
+            font-size: 20px;
+        }
+        .fa.fa-envelope, .mail-color{
+            color:  #B23121;
+        }
+        .font-weight-bold{
+            font-weight: bold;
+        }
+        .fa-linkedin{
+            color:#0676A8;
+        }
+        .fa-instagram{
+            color:#dd2a7b;
+        }
+        .pointer{
+            cursor: pointer;
+        }
+        .nav .logo{
+            background-image: url('/static/pcelogo.png');
+            height: 5rem;
+            width: 5rem;
+            background-position: center;
+            background-size: cover;
+        }
+        #home .background-image{
+            background-image: url(/static/home_nav.jpg);
+            opacity: 0.5!important;
+        }
+        /* #home .background-image-2{
+            background-image: url(/static/home_nav.jpg);
+        } */
+        .tab_content #home .content .data{
+            color:#ffffff;
+            background-color: #1b3058;
+            border-radius: 0.5rem;
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            font-size: 20px;
+            max-height: 68vh;
+            overflow-y: auto;
+            word-spacing: 0.25rem;
+            line-height: 2.5rem;
+        }
+        .tab_content #home .content .header{
+            font-size: 50px;
+            font-weight: 500;
+            font-family: 'Sofia', 'Cormorant', serif;
+        }
+        .tab_content #home .content  .name{
+            font-size: 50px;
+            font-weight: bold;
+            color: grey;
+            font-family: 'Cormorant', serif;
+        }
+        #projects .background-image{
+            background-image: url(/static/projects.png);
+        }
+        #projects .background-image-2{
+            background-image: url(/static/projects.png);
+        }
+        .tab_content #projects .content .project-container{
+            background-color: #1b3058;
+            height: 15rem;
+            /* width: 15rem; */
+            /* border-radius: 2rem; */
+            /* opacity: 0.5; */
+        }
+        .tab_content #projects .content{
+            height: 95%;
+            overflow-y: auto;
+        }
+        .tab_content #projects .content .project-container .image{
+            background-image: url('/static/iot.png');
+            background-color: transparent;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 25%;
+            height: 100%;
+            /* transition: all 100ms ease; */
+        }
+        .tab_content #projects .content .project-container .text{
+            width: 70%;
+            height: 100%;
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+        }
+        .tab_content #projects .content .project-container .text .title{
+            font-size: 20px;
+            word-spacing: 0.25rem;
+            line-height: 2.5rem;
+        }
+        .tab_content #projects .content .project-container .text .description{
+            font-size: 15px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+        }
+        #achievements .background-image{
+            background-image: url(/static/achievements.png);
+        }
+        #achievements .background-image-2{
+            background-image: url(/static/achievements.png);
+        }
+        .tab_content #achievements .content .data{
+            color:#ffffff;
+            background-color: #1b3058;
+            border-radius: 0.5rem;
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            max-height: 86vh;
+            overflow-y: auto;
+        }
+        .tab_content #achievements .content .data .title{
+            font-size: 20px;
+            word-spacing: 0.25rem;
+            line-height: 2.0rem;
+            color: #ffcb00;
+        }
+        .tab_content #achievements .content .data .description{
+            font-size: 16px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+        }
+        #internships .background-image{
+            background-image: url(/static/internships.png);
+        }
+        #internships .background-image-2{
+            background-image: url(/static/internships.png);
+        }
+        .tab_content #internships .content .data{
+            color:#ffffff;
+            background-color: #1b3058;
+            border-radius: 0.5rem;
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            max-height: 86vh;
+            overflow-y: auto;
+        }
+        .tab_content #internships .content .data .title{
+            font-size: 20px;
+            word-spacing: 0.25rem;
+            line-height: 2.0rem;
+            color: #ffcb00;
+        }
+        .tab_content #internships .content .data .description{
+            font-size: 16px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+        }
+        .tab_content #internships .content .data .description .title_sm{
+            color: #ffcb00;
+        }
+        #skills .background-image{
+            background-image: url(/static/skills.png);
+        }
+        #skills .background-image-2{
+            background-image: url(/static/skills.png);
+        }
+        .tab_content #skills .content .data{
+            color:#ffffff;
+            background-color: #1b3058;
+            border-radius: 0.5rem;
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            max-height: 86vh;
+            overflow-y: auto;
+        }
+        .tab_content #skills .content .data .title{
+            /* font-size: 18px;
+            word-spacing: 0.25rem;
+            line-height: 2.0rem; */
+            color: #ffffff;
+        }
+        .tab_content #skills .content .data #soft .text, .tab_content #skills .content .data #hard .text{
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: underline;
+            word-spacing: 0.25rem;
+            line-height: 2.0rem;
+            color: #ffcb00;
+        }
+        .fa.fa-star{
+            color: #ffcb00!important;
+        }
+        .tab_content #skills .content .data .rating{
+            font-size: 16px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+        }
+        .fa.fa-arrow-down{
+            -webkit-text-stroke: 1.1px #ffffff;
+        }
+        #academics .background-image{
+            background-image: url(/static/academics.png);
+        }
+        #academics .background-image-2{
+            background-image: url(/static/academics.png);
+        }
+        .tab_content #academics .content .card .year{
+            font-size: 22px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+            border-bottom: 1px solid #ffcb00;
+            width: 90%;
+            margin: auto;
+            padding-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        .tab_content #academics .content .card .class{
+            font-size: 18px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .tab_content #academics .content .card .school{
+            font-size: 18px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+            color: #ffffff;
+        }
+        .tab_content #academics .content .card .marks{
+            font-size: 18px;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+            color: #ffffff;
+        }
+        .tab_content #academics .content .card{
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            word-spacing: 0.25rem;
+            line-height: 2.0rem;
+            background-color: #1b3058;
+        }
+        /* .tab_content #achievements .content .data ul li:hover{
+            background-color: #ffcb00;
+        }
+        .tab_content #achievements .content .data ul li:hover:before{
+            background-color: #ffcb00;
+        } */
+        #contact .background-image{
+            background-image: url(/static/contact_us.png);
+        }
+        #contact .background-image-2{
+            background-image: url(/static/contact_us.png);
+        }
+        #contact .btn.btn-primary{
+            background-color: #ffcb00;
+            border: 1px solid #ffcb00;;
+        }
+        #contact form{
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            color:  #B23121;
+            font-weight: 800;
+            font-size: 17px;
+        }
+        #contact input{
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            color:  #B23121;
+            font-size: 15px;
+        }
+        #contact textarea{
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            color:  #B23121;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+            font-size: 15px;
+        }
+        #resume_tab{
+            background-color: #ffcb00;
+            border-radius: 0.5rem;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .tab_content .bg:nth-child(even){
+            background-color: #ede7f6;
+        }
+        .logo{
+            color: #a41d31;
+            position: fixed;
+            top: 0;
+            height: 2rem;
+            text-align: justify;
+            font-family: 'Cormorant', serif;
+            color:  #B23121;
+            word-spacing: 0.25rem;
+            line-height: 1.5rem;
+            font-size: 15px;
+            font-weight: 900;
+        }
+        .logo img{
+            height: 100%;
+        }
+        .fs-59{
+            font-size: 59px;
+        }
+    </style>
+    <script>
+        $(document).ready(_=>{
+            //just for presentation
+            // $(".toast").toast();
+
+            //----
+            // let scroll=true;
+            // scrollTo(0,0);
+            // scroll=false;
+            // const _side_nav=".side-bar .side_nav";
+            // let last=0;
+            // $(document).scroll(_=>{
+            //     if(scroll){
+            //         return false;
+            //     }
+            //     if(!scroll){
+            //         scroll=true;
+            //         var current=$(document).scrollTop();
+            //         if(current>last)
+            //             letChangeTab("#"+$(_side_nav+".active span").data("next")+"_tab");
+            //         else if (current<last)
+            //             letChangeTab("#"+$(_side_nav+".active span").data("prev")+"_tab");
+            //         last=current;
+            //         scroll=false;
+            //     }
+            // });
+            scrollTo(0,0);
+            const _side_nav=".side-bar .side_nav";
+            const variable_difference=50
+            window._top={
+                    home:{
+                        id:"#home",
+                        target:"#home_tab",
+                        top:$('#home').offset().top
+                    },
+                    projects:{
+                        id:"#projects",
+                        target:"#projects_tab",
+                        top:$('#projects').offset().top-variable_difference
+                    },
+                    achievements:{
+                        id:"#achievements",
+                        target:"#achievements_tab",
+                        top:$('#achievements').offset().top-variable_difference
+                    },
+                    internships:{
+                        id:"#internships",
+                        target:"#internships_tab",
+                        top:$('#internships').offset().top-variable_difference
+                    },
+                    skills:{
+                        id:"#skills",
+                        target:"#skills_tab",
+                        top:$('#skills').offset().top-variable_difference
+                    },
+                    academics:{
+                        id:"#academics",
+                        target:"#academics_tab",
+                        top:$('#academics').offset().top-variable_difference
+                    },
+                    contact:{
+                        id:"#contact",
+                        target:"#contact_tab",
+                        top:$('#contact').offset().top-variable_difference
+                    }
+            }
+            $(document).on("click",_side_nav+" span:not(#resume_tab)",function(){
+                // scroll=true;
+                letChangeTab(this);
+                // scroll=false;
+            });
+            $(document).scroll(_=>{
+                let current_top=$(document).scrollTop();
+                switch(true){
+                    case (current_top>=_top.contact.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.contact.target).parent().addClass("active");
+                        break;
+                    case (current_top>=_top.academics.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.academics.target).parent().addClass("active");
+                        break;
+                    case (current_top>=_top.skills.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.skills.target).parent().addClass("active");
+                        break;
+                    case (current_top>=_top.internships.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.internships.target).parent().addClass("active");
+                        break;
+                    case (current_top>=_top.achievements.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.achievements.target).parent().addClass("active");
+                        break;
+                    case (current_top>=_top.projects.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.projects.target).parent().addClass("active");
+                        break;
+                    case (current_top>=_top.home.top):
+                        $(_side_nav+".active").removeClass("active");
+                        $(_top.home.target).parent().addClass("active");
+                        break;
+                }
+
+            });
+            letChangeTab=(element)=>{
+                $(_side_nav+".active").removeClass("active");
+                $(element).parent().addClass("active");
+                scrollTo(0,$("#"+$(element).data('id')).offset().top);
+            }
+        });
+    </script>
+  </head>
+  <body>
+      <div class="logo">
+          <img src="/static/pcelogo.png"> PCE ASK E-Portfolio
+      </div>
+    <div class="side-bar py-3 px-5 my-0 mx-5">
+        <div class="text-left side_nav d-flex flex-wrap align-content-center active" id="home_nav"><span class="pointer" id="home_tab" data-next="projects" data-prev="contact" data-id="home">Home</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer" id="projects_tab"  data-next="achievements" data-prev="home" data-id="projects">Projects</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer" id="achievements_tab"  data-next="internships" data-prev="projects" data-id="achievements">Achievements / Co Curricular</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer" id="internships_tab"  data-next="skills" data-prev="achievements" data-id="internships">Internships</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer" id="skills_tab"  data-next="academics" data-prev="internships"  data-id="skills">Skills</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer" id="academics_tab"  data-next="contact" data-prev="skills" data-id="academics">Academics</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer" id="contact_tab"  data-next="home" data-prev="academics" data-id="contact">Contact Me</span></div>
+        <div class="text-left side_nav d-flex flex-wrap align-content-center"><span class="pointer px-3 py-2" id="resume_tab" title="click to download resume">Resume</span></div>
+    </div>
+
+    <div class="tab_content">
+        <div class="row m-0 p-0 h-100 bg" id="home">
+            <div class="col w-50 background-image"></div>
+            <div class="col w-50 p-3 content">
+                <div class="d-flex justify-content-between">
+                    <div class="header p-2">Hello,</div>
+                    <div class="fs-59">
+                        <i class="fa fa-user-circle"></i>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div><span class="header mx-2">I am</span> <span class="name">Navin Joshi</span></div>
+                    <div>
+                        <!--<div class="d-flex flex-wrap align-content-end">-->
+                            <div class="pointer" title="E-mail"><span><i class="fa fa-envelope mx-2 fs-14"></i></span><span class="fs-14 mail-color">nnjoshi@gmail.com</span></div>
+                            <div class="my-1">
+                                <span class="mx-2 fs-35 pointer" title="Github"><i class="fa fa-github"></i></span>
+                                <span class="mx-2 fs-35 pointer" title="Linkedin"><i class="fa fa-linkedin"></i></span>
+                                <span class="mx-2 fs-35 pointer" title="Instagram"><i class="fa fa-instagram"></i></span>
+                            </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="data mt-2 p-3">Student of engineering Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Fourth year student of engineeringLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Fourth year student of engineeringLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 h-100 bg" id="projects">
+            <div class="col p-0 w-50">
+                <div class="w-100 background-image"></div>
+                <div class="w-100 background-image-2"></div>
+            </div>
+            <div class="col w-50 m-3 p-0 content">
+                <div class="mb-2 mt-0 d-flex justify-content-between p-2 text-white project-container">
+                    <div class=" image" style="font-size: 8px; color: #e0e0e08c;">project image sample</div>
+                    <div class="text text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="title"><span>This is project title</span></div>
+                            <div>
+                                <div class="my-1">
+                                    <span class="mx-2 fs-14 pointer" title="Github"><i class="fa fa-github"></i></span>
+                                    <span class="mx-2 fs-14 pointer" title="Hosted Link"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description.....</div>
+                    </div>
+                </div>
+                <div class="my-2 d-flex justify-content-between p-2 text-white project-container">
+                    <div class=" image" style="font-size: 8px; color: #e0e0e08c;">project image sample</div>
+                    <div class="text text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="title"><span>This is project title</span></div>
+                            <div>
+                                <div class="my-1">
+                                    <span class="mx-2 fs-14 pointer" title="Github"><i class="fa fa-github"></i></span>
+                                    <span class="mx-2 fs-14 pointer" title="Hosted Link"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description.....</div>
+                    </div>
+                </div>
+                <div class="mt-2 mb-0 d-flex justify-content-between p-2 text-white project-container">
+                    <div class=" image" style="font-size: 8px; color: #e0e0e08c;">project image sample</div>
+                    <div class="text text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="title"><span>This is project title</span></div>
+                            <div>
+                                <div class="my-1">
+                                    <span class="mx-2 fs-14 pointer" title="Github"><i class="fa fa-github"></i></span>
+                                    <span class="mx-2 fs-14 pointer" title="Hosted Link"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description.....</div>
+                    </div>
+                </div>
+                <div class="mt-2 mb-0 d-flex justify-content-between p-2 text-white project-container">
+                    <div class=" image" style="font-size: 8px; color: #e0e0e08c;">project image sample</div>
+                    <div class="text text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="title"><span>This is project title</span></div>
+                            <div>
+                                <div class="my-1">
+                                    <span class="mx-2 fs-14 pointer" title="Github"><i class="fa fa-github"></i></span>
+                                    <span class="mx-2 fs-14 pointer" title="Hosted Link"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description.....</div>
+                    </div>
+                </div>
+                <div class="mt-2 mb-0 d-flex justify-content-between p-2 text-white project-container">
+                    <div class=" image" style="font-size: 8px; color: #e0e0e08c;">project image sample</div>
+                    <div class="text text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="title"><span>This is project title</span></div>
+                            <div>
+                                <div class="my-1">
+                                    <span class="mx-2 fs-14 pointer" title="Github"><i class="fa fa-github"></i></span>
+                                    <span class="mx-2 fs-14 pointer" title="Hosted Link"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description">Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description to continue. Some project description.....</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 h-100 bg" id="achievements">
+            <div class="col p-0 w-50">
+                <div class="w-100 background-image"></div>
+                <div class="w-100 background-image-2"></div>
+            </div>
+            <div class="col w-50 p-5 content">
+                <div class="data">
+                    <ul>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 1
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 2
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 3
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 4
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 5
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 6
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 7
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 8
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 9
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 10
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Achievement 11
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                Brief description about the achievement also certificate image etc can be added here. In top right corner link can also be added which will redirect to any refrence for the article.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 h-100 bg" id="internships">
+            <div class="col p-0 w-50">
+                <div class="w-100 background-image"></div>
+                <div class="w-100 background-image-2"></div>
+            </div>
+            <div class="col w-50 p-5 content">
+                <div class="data">
+                    <ol>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="my-2">
+                            <div class="d-flex justify-content-between title pr-3">
+                                <div class="">
+                                    Position Held/ Title
+                                </div>
+                                <div>
+                                    <span class="mx-2 fs-14 pointer text-white" title="Refrence article"><i class="fa fa-external-link"></i></span>
+                                </div>
+                            </div>
+                            <div class="description pr-3">
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Company:-
+                                    </span>
+                                    <span>
+                                        XYZ international services
+                                    </span>
+                                </div>
+                                <div class="small">
+                                    <span class="title_sm">
+                                        Duration:-
+                                    </span>
+                                    <span>
+                                        3 Months (12/2/2020-13/5/2020)
+                                    </span>
+                                </div>
+                                <div>
+                                    Describe what did you do at internships, responsiblities held up. Also you can link to any blogs written about internship experience etc in top right corner.
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 h-100 bg" id="skills">
+            <div class="col p-0 w-50">
+                <div class="w-100 background-image"></div>
+                <div class="w-100 background-image-2"></div>
+            </div>
+            <div class="col w-50 p-5 content">
+                <div class="data p-3">
+                    <div id="soft">
+                        <div class="text">Soft Skills</div>
+                        <div>
+                            <ul>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 1
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 2
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 3
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 4
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 5
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div id="hard">
+                        <div class="text">Technical Skills</div>
+                        <div>
+                            <ul>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 1
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 2
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 3
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 3
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 4
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 5
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 6
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 7
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                                <li class="my-2">
+                                    <div class="d-flex justify-content-between title pr-3">
+                                        <div class="">
+                                            Skill Name 8
+                                        </div>
+                                        <div>
+                                            <span class="mx-2 small pointer text-white" title="Certificate / Online Course taken"><i class="fa fa-external-link"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="rating pr-3">
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o mx-1" aria-hidden="true"></i>
+
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 h-100 bg" id="academics">
+            <div class="col p-0 w-50">
+                <div class="w-100 background-image"></div>
+                <div class="w-100 background-image-2"></div>
+            </div>
+            <div class="col w-50 p-5 content">
+                <div class="d-flex flex-wrap align-content-center h-100">
+                    <div class="w-100">
+                        <div class="m-auto w-50">
+                            <div class="text-center card p-3 text-white">
+                                <div class="year">
+                                    2014
+                                </div>
+                                <div class="class">
+                                    X
+                                </div>
+                                <div class="school">
+                                    Ryan International School
+                                </div>
+                                <div class="marks">
+                                    <span class="title_m">
+                                        Percentage:-
+                                    </span>
+                                    <span class="value">
+                                        85%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="text-center card p-3 text-white">
+                                <div class="year">
+                                    2014-2016
+                                </div>
+                                <div class="class">
+                                    XII
+                                </div>
+                                <div class="school">
+                                    Terna Vidyalaya
+                                </div>
+                                <div class="marks">
+                                    <span class="title_m">
+                                        Percentage:-
+                                    </span>
+                                    <span class="value">
+                                        63%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="text-center card p-3 text-white">
+                                <div class="year">
+                                    2016-2020
+                                </div>
+                                <div class="class">
+                                    B.E.
+                                </div>
+                                <div class="school">
+                                    Pillai college of engineering
+                                </div>
+                                <div class="marks">
+                                    <span class="title_m">
+                                        CGPA:-
+                                    </span>
+                                    <span class="value">
+                                        6.30
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 h-100" id="contact">
+            <div class="col p-0 w-50">
+                <div class="w-100 background-image"></div>
+                <div class="w-100 background-image-2"></div>
+            </div>
+            <div class="col w-50 p-5 content">
+                <form class="">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control" id="name" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">E-Mail</label>
+                      <input type="text" class="form-control" id="email" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" rows=7 id="message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <!--just for presentation-->
+    <!--<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">-->
+    <!--  <div class="toast-header">-->
+    <!--    <strong class="mr-auto">Bootstrap</strong>-->
+    <!--    <small>11 mins ago</small>-->
+    <!--    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">-->
+    <!--      <span aria-hidden="true">&times;</span>-->
+    <!--    </button>-->
+    <!--  </div>-->
+    <!--  <div class="toast-body">-->
+    <!--    Hello, world! This is a toast message.-->
+    <!--  </div>-->
+    <!--</div>-->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
